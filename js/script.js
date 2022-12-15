@@ -129,19 +129,18 @@ function cargarFormulario(){
       "<h2>Registrate</h2>"+
     "</div>" +
     "<p class='centrado'>RECIBE PROMOCIONES EXCLUSIVAS Y LAS ÚLTIMAS NOVEDADES DEL CRUSTACEO CASCARUDO</p>"+
-    "<form name='formulario para registrarse' id='registrarse'>" +
-        "<label for='nombre'>Nombre*: </label></td><td><input id=nombre required>"+
-        "<label for='apellidos'>Apellidos*: </label></td><td><input id=apellidos required>"+
-        "<label for='correo'>Correo electronico*: </label></td><td><input id='correo' type='email'>"+
-        "<label for='movil'>Móvil*: </label></td><td><input id='movil' type='tel' required>"+
-        "<label for='fech_nac'>Fecha de Nacimiento*: </label></td><td><input id='fech_nac' type='date' required></td>"+
-        "<label for='cp'>Cp*: </label><input id='cp' required>"+
-        "<input type='checkbox' id='pol_priv'>"+
-        "<label for='pol_priv'>Consiento el uso de mis datos para los fines indicados en la política de privacidad SUS DATOS SEGUROS.</label></td></tr>"+
-        "<input type='reset' value='Limpiar'></td><td colspan='2'><input type='submit' value='Enviar'>"+
-    "</form>"+
-    "<p class='centrado'>¿Ya tienes cuenta? <a onclick='formIniSes()' href='#' alt='Iniciar sesión' role='link' tabindex='0'> Iniciar Sesión </a>";
-    
+      "<form name='formulario para registrarse' id='registrarse'>" +
+          "<label for='nombre'>Nombre*: </label><input id=nombre required>"+
+          "<label for='apellidos'>Apellidos*: </label><input id=apellidos required>"+
+          "<label for='correo'>Correo electronico*: </label><input id='correo' type='email'>"+
+          "<label for='movil'>Móvil*: </label><input id='movil' type='tel' required>"+
+          "<label for='fech_nac'>Fecha de Nacimiento*: </label><input id='fech_nac' type='date' required></td>"+
+          "<label for='cp'>Cp*: </label><input id='cp' required>"+
+          "<input type='checkbox' id='pol_priv'>"+
+          "<label for='pol_priv'>Consiento el uso de mis datos para los fines indicados en la política de privacidad SUS DATOS SEGUROS.</label>"+
+          "<input type='reset' value='Limpiar'><input type='submit' value='Enviar'>"+
+      "</form>"+
+      "<p class='centrado'>¿Ya tienes cuenta? <a onclick='formIniSes()' href='#' alt='Iniciar sesión' role='link' tabindex='0'> Iniciar Sesión </a>";
 }
 
 //Formulario de Inicio de Sesión
@@ -150,12 +149,12 @@ function formIniSes(){
   "<div id='titulo' class='titulo'>"+
     "<h2>Iniciar Sesion</h2>"+
   "</div>" +
-  "<form name='formulario para iniciar sesión' id='iniciar_sesion'>" +
-        "<label for='correo'>Correo electrónico</label></td><td><input id=correo type='email'>"+
-        "<label for='contrasenha'>Contraseña</label></td><td><input id=contrasenha type='password'>"+
+    "<form name='formulario para iniciar sesión' id='iniciar_sesion'>" +
+          "<label for='correo'>Correo electrónico</label><input id=correo type='email'>"+
+          "<label for='contrasenha'>Contraseña</label><input id=contrasenha type='password'>"+
     "</form>"+
     "<button id='iniciar' onclick='verificar(correo.value)'>Iniciar Sesión</button>"+
-    "<p class='centrado activo' id='login'></p>";
+    "<p class='centrado activo' id='login'></p>"; 
 }
 
 function verificar(correo){

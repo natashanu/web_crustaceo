@@ -151,6 +151,14 @@ main{
   background-color: aliceblue;
 }
 
+.titulo{
+  font-family: Spongeboy;
+  padding: 15px;
+  font-size: larger;
+  text-align: center;
+  background: linear-gradient(90deg, rgba(0,138,172,255) 0%, rgba(3,171,153,255) 35%, rgba(213,224,67,255) 100%);
+}
+
 /* ************** */
 /*       PIE      */
 /* ************** */
@@ -267,28 +275,32 @@ div#menu button{
 /* ************** */
 /*   FORMULARIO   */
 /* ************** */
-.titulo{
-  font-family: Spongeboy;
-  padding: 15px;
-  font-size: larger;
-  text-align: center;
-  background: linear-gradient(90deg, rgba(0,138,172,255) 0%, rgba(3,171,153,255) 35%, rgba(213,224,67,255) 100%);
+form{
+  margin: 2% auto;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 40%;
+  font-size: 1.5em;
 }
 
-#iniciar_sesion{
-  width: 60%;
-  display: grid;
-  justify-content: center;
+form input{
+  width: 80%;
+  border-radius: 8px;
+  padding: 8px;
+  background-color: rgb(231, 238, 130);
+  border: transparent;
+
 }
 
 input[type=reset],input[type=submit], button{
   cursor: pointer;
-  font-size: 20px;
-  float: left;
-  width: 50%;
-  display: inline;
+  font-size: 100%;
+  width: 60%;
   font-weight: bold;
-  padding: 10px;
+  padding: 4%;
   border-radius: 10px;
   background: linear-gradient(90deg, rgba(0,138,172,255) 0%, rgba(3,171,153,255) 35%, rgba(213,224,67,255) 100%);
 }
