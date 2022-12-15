@@ -7,7 +7,7 @@
   * Se añadieron las etiquuetas label para cada entrada de formulario
 */
 
-INICIO_SESION = true;
+INICIO_SESION =false;
 CARRO_COMPRA = new Array();
 
 //Función que carga la página principal
@@ -98,7 +98,12 @@ function cargarCarrito(){
     texto+= "<p class='centrado'><img src='./imagenes/imagen_bob.jpeg'>"+
     "<br/>Lo sentimos, no podemos procesar su orden sin <a onclick='formIniSes()' alt='Iniciar sesión' role='link' tabindex='0'><b>iniciar sesión</b></p>";
     else{
+      if(CARRO_COMPRA.length == 0){
+        texto += "<p class='centrado'>Su carrito se encuentra actualmente vacío<br/><img src='./imagenes/empleadoAtento.jpg' alt='Imagen de empleado esperando pedido'>"+
+        "<br/> Estaremos atentos a que haga su pedido</p>";
+      }
       suma = 0;
+      let contenido = '';
       for (let i = 0; i < CARRO_COMPRA.length; i++) {
         console.log(CARRO_COMPRA[i][0][0])
             texto+= '<p>'+CARRO_COMPRA[i][0][0]+'</p><p><img src="./imagenes/'+CARRO_COMPRA[i][0][1]+'"></p>';
@@ -149,11 +154,13 @@ function formIniSes(){
   "<div id='titulo' class='titulo'>"+
     "<h2>Iniciar Sesion</h2>"+
   "</div>" +
+    "<div class='formulario'>"+
     "<form name='formulario para iniciar sesión' id='iniciar_sesion'>" +
           "<label for='correo'>Correo electrónico</label><input id=correo type='email'>"+
           "<label for='contrasenha'>Contraseña</label><input id=contrasenha type='password'>"+
     "</form>"+
     "<button id='iniciar' onclick='verificar(correo.value)'>Iniciar Sesión</button>"+
+    "</div>" +
     "<p class='centrado activo' id='login'></p>"; 
 }
 

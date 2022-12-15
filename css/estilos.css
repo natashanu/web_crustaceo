@@ -50,7 +50,7 @@ hr{
 /*Texto centrado*/
 .centrado{
   font-size: 20px;
-  margin: 10px;
+  margin: 2%;
   text-align: center;
 }
 
@@ -142,7 +142,7 @@ nav{
 /*      MAIN      */
 /* ************** */
 main{
-  height: auto;
+  height: fit-content;
   padding: 5px;
   min-height: 65vh;
   width: 80%;  
@@ -192,7 +192,7 @@ footer img{
 /* ************** */
 #categorias{
   display: grid;
-  gap: 8%;
+  gap: 15px;
   padding: 5%;
   grid-template-columns: repeat(2, minmax(200px, 1fr));
   grid-template-rows: repeat(2, minmax(300px, 1fr));
@@ -201,6 +201,13 @@ footer img{
   font-family: Spongeboy;
   text-align: center;
   line-height: 50px;
+}
+
+@media (max-width:680px){
+  #categorias{
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
 }
 
 #categorias a{ 
@@ -275,13 +282,20 @@ div#menu button{
 /* ************** */
 /*   FORMULARIO   */
 /* ************** */
+.formulario{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 form{
   margin: 2% auto;
   display: grid;
   grid-template-columns: repeat(2,1fr);
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 10px 0;
   width: 40%;
   font-size: 1.5em;
 }
@@ -297,14 +311,17 @@ form input{
 
 input[type=reset],input[type=submit], button{
   cursor: pointer;
+  color: black;
   font-size: 100%;
-  width: 60%;
   font-weight: bold;
-  padding: 4%;
+  padding: 10px;
   border-radius: 10px;
   background: linear-gradient(90deg, rgba(0,138,172,255) 0%, rgba(3,171,153,255) 35%, rgba(213,224,67,255) 100%);
 }
 
 button{
-  width: 90%;
+  font-size: 100%;
+  width: fit-content;
 }
+
+
