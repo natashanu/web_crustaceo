@@ -1,8 +1,14 @@
+/* 
+  PÁGINA WEB CREADA DESDE JAVASCRIPT
+  * Se utilizaron etiquetas semanticas
+  * Todos los links e imagenes llevan texto alternativo
+  * Para que sea de fácil navegación con el teclado se agrego la etiqueta tabindex
+  * Se eligieron colores que hacen constraste entre ellos
+  * Se añadieron las etiquuetas label para cada entrada de formulario
+*/
+
 INICIO_SESION = true;
 CARRO_COMPRA = new Array();
-
-//Todos los links llevan texto alternativo
-//Para que sea de fácil navegación con el teclado se agrego la etiqueta tabindex
 
 //Función que carga la página principal
 function cargarPagina(){
@@ -33,7 +39,7 @@ function cargarPagina(){
             '<a href=""><img src="./imagenes/instagram.png"></a>'+
             '<a href=""><img src="./imagenes/gorjeo.png"></a>'+
           "</div>"+
-          '<p>©2022 Crustaceo Cascarudo Restaurant Spain. Todos los derechos reservados.</p>'+
+          '<p>&#169; 2022 Crustaceo Cascarudo Restaurant Spain. Todos los derechos reservados.</p>'+
         '</footer>';
 }
 
@@ -123,18 +129,16 @@ function cargarFormulario(){
       "<h2>Registrate</h2>"+
     "</div>" +
     "<p class='centrado'>RECIBE PROMOCIONES EXCLUSIVAS Y LAS ÚLTIMAS NOVEDADES DEL CRUSTACEO CASCARUDO</p>"+
-    "<form>" +
-      "<table summary='Formulario para registrarse'>" + 
-        "<tr><td><label for='nombre'>Nombre*: </label></td><td><input id=nombre required></td>"+
-          "<td><label for='apellidos'>Apellidos*: </label></td><td><input id=apellidos required></td></tr>"+
-        "<tr><td><label for='correo'>Correo electronico*: </label></td><td><input id='correo' type='email'></td>"+
-        "<td><label for='movil'>Móvil*: </label></td><td><input id='movil' type='tel' required></td></tr></tr>"+
-        "<tr><td><label for='fech_nac'>Fecha de Nacimiento*: </label></td><td><input id='fech_nac' type='date' required></td>"+
-        "<td><label for='cp'>Cp*: </label></td><td><input id='cp' required></td></tr> "+
-        "<tr><td colspan='4'><input type='checkbox' id='pol_priv'>"+
+    "<form name='formulario para registrarse' id='registrarse'>" +
+        "<label for='nombre'>Nombre*: </label></td><td><input id=nombre required>"+
+        "<label for='apellidos'>Apellidos*: </label></td><td><input id=apellidos required>"+
+        "<label for='correo'>Correo electronico*: </label></td><td><input id='correo' type='email'>"+
+        "<label for='movil'>Móvil*: </label></td><td><input id='movil' type='tel' required>"+
+        "<label for='fech_nac'>Fecha de Nacimiento*: </label></td><td><input id='fech_nac' type='date' required></td>"+
+        "<label for='cp'>Cp*: </label><input id='cp' required>"+
+        "<input type='checkbox' id='pol_priv'>"+
         "<label for='pol_priv'>Consiento el uso de mis datos para los fines indicados en la política de privacidad SUS DATOS SEGUROS.</label></td></tr>"+
-        "<tr><td colspan='2'><input type='reset' value='Limpiar'></td><td colspan='2'><input type='submit' value='Enviar'></td></tr>"+
-      "</table>" +
+        "<input type='reset' value='Limpiar'></td><td colspan='2'><input type='submit' value='Enviar'>"+
     "</form>"+
     "<p class='centrado'>¿Ya tienes cuenta? <a onclick='formIniSes()' href='#' alt='Iniciar sesión' role='link' tabindex='0'> Iniciar Sesión </a>";
     
@@ -146,13 +150,11 @@ function formIniSes(){
   "<div id='titulo' class='titulo'>"+
     "<h2>Iniciar Sesion</h2>"+
   "</div>" +
-  "<form>" +
-    "<table summary='Formulario para Iniciar sesión'>" + 
-        "<tr><td><label for='correo'>Correo electrónico</label></td><td><input id=correo type='email'></td></tr>"+
-        "<tr><td><label for='contrasenha'>Contraseña</label></td><td><input id=contrasenha type='password'></td></tr>"+
-    "</table>" +
+  "<form name='formulario para iniciar sesión' id='iniciar_sesion'>" +
+        "<label for='correo'>Correo electrónico</label></td><td><input id=correo type='email'>"+
+        "<label for='contrasenha'>Contraseña</label></td><td><input id=contrasenha type='password'>"+
     "</form>"+
-    "<button id='Iniciar Sesion' onclick='verificar(correo.value)'>Iniciar Sesión</button>"+
+    "<button id='iniciar' onclick='verificar(correo.value)'>Iniciar Sesión</button>"+
     "<p class='centrado activo' id='login'></p>";
 }
 

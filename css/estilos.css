@@ -275,28 +275,10 @@ div#menu button{
   background: linear-gradient(90deg, rgba(0,138,172,255) 0%, rgba(3,171,153,255) 35%, rgba(213,224,67,255) 100%);
 }
 
-form{
-  margin: 20px;
-  display: flex;
+#iniciar_sesion{
+  width: 60%;
+  display: grid;
   justify-content: center;
-}
-
-form table{
-  border-collapse: separate;
-  border-spacing: 20px;
-  font-size: 1.5em;
-}
-
-form table input, form table input:active{
-  border-radius: 8px;
-  padding: 8px;
-  background-color: rgb(231, 238, 130);
-  border: transparent;
-}
-
-form table td{
-  width: 30%;
-  margin: 10px 0;
 }
 
 input[type=reset],input[type=submit], button{
