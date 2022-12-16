@@ -35,9 +35,9 @@ function cargarPagina(){
         '</main>'+
         '<footer>'+
           "<div id='redes'>"+
-            '<a href=""><img src="./imagenes/facebook.png"></a>'+
-            '<a href=""><img src="./imagenes/instagram.png"></a>'+
-            '<a href=""><img src="./imagenes/gorjeo.png"></a>'+
+            '<a href="https://www.facebook.com/bobesponja" target="_blank"><img src="./imagenes/facebook.png"></a>'+
+            '<a href="https://www.instagram.com/bobesponja/" target="_blank"><img src="./imagenes/instagram.png"></a>'+
+            '<a href="https://twitter.com/bobesponja/" target="_blank"><img src="./imagenes/gorjeo.png"></a>'+
           "</div>"+
           '<p>&#169; 2022 Crustaceo Cascarudo Restaurant Spain. Todos los derechos reservados.</p>'+
         '</footer>';
@@ -141,8 +141,7 @@ function cargarFormulario(){
           "<label for='movil'>Móvil*: </label><input id='movil' type='tel' required>"+
           "<label for='fech_nac'>Fecha de Nacimiento*: </label><input id='fech_nac' type='date' required></td>"+
           "<label for='cp'>Cp*: </label><input id='cp' required>"+
-          "<input type='checkbox' id='pol_priv'>"+
-          "<label for='pol_priv'>Consiento el uso de mis datos para los fines indicados en la política de privacidad SUS DATOS SEGUROS.</label>"+
+          "<label for='pol_priv'><input type='checkbox' id='pol_priv'>Consiento el uso de mis datos para los fines indicados en la política de privacidad SUS DATOS SEGUROS.</label>"+
           "<input type='reset' value='Limpiar'><input type='submit' value='Enviar'>"+
       "</form>"+
       "<p class='centrado'>¿Ya tienes cuenta? <a onclick='formIniSes()' href='#' alt='Iniciar sesión' role='link' tabindex='0'> Iniciar Sesión </a>";

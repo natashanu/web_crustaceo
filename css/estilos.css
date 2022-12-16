@@ -56,7 +56,8 @@ hr{
 
 /*Enlace activo*/
 .activo{
-    color: orangered;
+  text-decoration: underline orangered 5px;
+    /* color: orangered; */
 }
 
 a{
@@ -306,6 +307,10 @@ form input{
   padding: 8px;
   background-color: rgb(231, 238, 130);
   border: transparent;
+
+}
+
+#registrarse :nth-child(){
 
 }
 
