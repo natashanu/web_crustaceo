@@ -55,7 +55,7 @@ hr{
 }
 
 /*Enlace activo*/
-.activo{
+nav .activo{
   text-decoration: underline orangered 5px;
     /* color: orangered; */
 }
@@ -205,6 +205,12 @@ footer img{
 }
 
 @media (max-width:680px){
+  #logo{
+    width: 50px;
+    position: fixed;
+    left: 10px;
+    top:110px
+  }
   #categorias{
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
@@ -279,6 +285,51 @@ div#menu button{
 /* ************** */
 /*    CARRITO     */
 /* ************** */
+#tabla_compra {
+  width: 60%;
+  margin: 2% auto;
+  font-size: 20px;
+  text-align: center;
+}
+
+#tabla_compra caption{
+  
+}
+
+#tabla_compra td, #tabla_compra th{
+  padding: 0.5em;
+}
+
+#conceptos th{
+  background-color: rgb(9, 173, 151);
+  border: 1px solid #ccc;
+}
+
+#total td{
+  padding-top: 0.5em;
+  border-top: 1px solid #ccc;
+}
+
+ tr.producto {
+   vertical-align:middle;
+}
+ 
+ td.producto {
+  margin-right: 1em;
+   vertical-align:top;
+   
+}
+ 
+ td.producto img {
+  width: 200px;
+}
+
+td.producto p{
+   margin-bottom:0.5em;
+   padding-bottom:0.5em;
+   margin-top:0em;
+   padding-top:0em;
+ }
 
 /* ************** */
 /*   FORMULARIO   */

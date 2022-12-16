@@ -8,9 +8,10 @@ var complementos = new Array();
 
 //Nombre Alimento, Nombre imagen, Descripcion, Alergenos, Precio
 complementos.push(['Algas Fritas', 'algasFritas.jpg', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione eius animi ipsam, dignissimos sed beatae rem possimus at sit odit quasi veniam. Mollitia excepturi culpa eius necessitatibus eos! Saepe, reprehenderit!','',5.0]);
-complementos.push(['Perro Caliente', 'perroCaliente.jpg', 5.0]);
+complementos.push(['Perro Caliente', 'perroCaliente.jpg', "", "", 5.0]);
 complementos.push(['Pizza de Don Cangrejo', 'Pizza.jpg', 5.0]);
 complementos.push(['Bracitos Crujientes', 'maniManitas.jpg', 5.0]);
+complementos.push(['Galletas de la abuela con leche', 'galletasAbuela.png',"","", 5.0]);
 bebidas.push(['Refresco de Algas', 'bebidas.jpg', 2.0]);
 bebidas.push(['Malteada', 'Merengada.png', 5.0]);
 menuInfantil.push(['Caja Sorpresa', 'CajitaFeliz.jpg', 5.0]);
