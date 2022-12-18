@@ -25,4 +25,6 @@ hamburguesas.push(['Hamburguesa Azul', 'hamburguesasAzul.jpg','¿Una Burger vege
 hamburguesas.push(['Hamburguesa Morada', 'hamburguesasMorada.jpg','¿Una Burger vegetariana con sabor especial? Nueva Vegetal de color morado. 100% sabor a remolacha', 5.0]);
 hamburguesas.push(['Hamburguesa Roja', 'hamburguesasRoja.jpg','¿Una Burger vegetariana con sabor especial? Nueva Vegetal de color rosa. 100% sabor a fresa', 5.0]);
 hamburguesas.push(['Hamburguesa Verde', 'hamburguesasVerde.jpg','¿Una Burger vegetariana con sabor especial? Nueva Vegetal de color verde. 100% sabor a alga', 5.0]);
+complementos.push(['Galletas de la abuela con leche', 'galletasAbuela.png',"","", 5.0]);
+
 

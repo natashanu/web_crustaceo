@@ -7,7 +7,7 @@
   * Se añadieron las etiquuetas label para cada entrada de formulario
 */
 
-INICIO_SESION =false;
+INICIO_SESION =true;
 CARRO_COMPRA = new Array();
 
 //Función que carga la página principal
@@ -32,6 +32,14 @@ function cargarPagina(){
             '</nav>'+
         '</header>'+
         '<main id="principal">'+
+        //probando
+        '<div class="gallery">'+
+          '<img src="./imagenes/Malteada.png" class="image">'+
+          '<img src="./imagenes/mapa.jpg" class="image">'+
+          '<img src="./imagenes/Malteada.png" class="image">'+
+        '</div>'+
+
+
         '</main>'+
         '<footer>'+
           "<div id='redes'>"+
@@ -42,6 +50,9 @@ function cargarPagina(){
           '<p>&#169; 2022 Crustaceo Cascarudo Restaurant Spain. Todos los derechos reservados.</p>'+
         '</footer>';
 }
+
+
+
 
 //Función que carga el menú de opciones
 function cargarMenu(){
@@ -95,25 +106,44 @@ function cargarCarrito(){
     "<h2>Carrito</h2>"+
     "</div>";
     if(INICIO_SESION == false) 
-    texto+= "<p class='centrado'><img src='./imagenes/imagen_bob.jpeg'>"+
+    texto+= "<p class='centrado'><img src='./imagenes/imagen_bob.jpeg' alt='Bob Esponja esperando' width='250px'>"+
     "<br/>Lo sentimos, no podemos procesar su orden sin <a onclick='formIniSes()' alt='Iniciar sesión' role='link' tabindex='0'><b>iniciar sesión</b></p>";
     else{
       if(CARRO_COMPRA.length == 0){
-        texto += "<p class='centrado'>Su carrito se encuentra actualmente vacío<br/><img src='./imagenes/empleadoAtento.jpg' alt='Imagen de empleado esperando pedido'>"+
+        texto += "<p class='centrado'>Su carrito se encuentra actualmente vacío<br/>"+
+        "<img src='./imagenes/empleadoAtento.jpg' alt='Imagen de empleado esperando pedido' width='250px'>"+
         "<br/> Estaremos atentos a que haga su pedido</p>";
-      }
-      suma = 0;
+      }else{
+      let suma = 0;
       let contenido = '';
+      texto+= '<table id="tabla_compra">'+
+      '<caption>Carrito de la compra</caption>'+
+      '<tr id="conceptos">' +
+        '<th>Producto</th>'+
+        '<th>PVP</th>'+
+        '<th>Uds.</th>'+
+        '<th>Eur.</th>'+
+        '</tr>';
       for (let i = 0; i < CARRO_COMPRA.length; i++) {
         console.log(CARRO_COMPRA[i][0][0])
-            texto+= '<p>'+CARRO_COMPRA[i][0][0]+'</p><p><img src="./imagenes/'+CARRO_COMPRA[i][0][1]+'"></p>';
-            
+            texto+= '<tr class="producto">'+
+              '<td class="producto"><p>'+CARRO_COMPRA[i][0][0]+'<br/><img src="./imagenes/'+CARRO_COMPRA[i][0][1]+'" alt="'+CARRO_COMPRA[i][0][0]+'"></p></td>'+
+              '<td>'+ CARRO_COMPRA[i][0][4]+'</td>'+
+              '<td>1</td>'+
+              '<td>'+ CARRO_COMPRA[i][0][4]+'</td>'+
+              '</tr>';
+              suma+=CARRO_COMPRA[i][0][4];
+      }
+
+      texto +='<tr id="total">'	+
+      '<td colspan="3" align="right"><b>Precio Total</b></td>'+
+      '<td>'+ suma+'</td>'+
+      '</tr><tr><td colspan="4" align="right"><button onclick="window.open(\'./imagenes/cucaracha.jpg\',\'_top\')";>Pagar</button></td>'
+      '</tr></table>';
       }
     }
-    principal.innerHTML = texto
-
+    principal.innerHTML = texto;
 }
-
 
 //Función que la ubicación de la tienda
 function cargarMapa(){
@@ -121,6 +151,11 @@ function cargarMapa(){
     esteticaEnlaces('mapa');
     principal.innerHTML = "<div id='titulo' class='titulo'>"+
     "<h2>Encuentranos</h2>"+
+    "</div>"+
+    "<div id='ubicacion'>"+
+    "<h2>Pulsa en el mapa para ver la ubicación en google maps</h2>"+
+    "<a href='https://goo.gl/maps/yuKFQbw9gcGWdVkF8'  target='_blank'>" +
+    "<img src='../web_crustaceo/imagenes/mapa.jpg' alt=''></a>"+
     "</div>";
 
 }
@@ -155,8 +190,8 @@ function formIniSes(){
   "</div>" +
     "<div class='formulario'>"+
     "<form name='formulario para iniciar sesión' id='iniciar_sesion'>" +
-          "<label for='correo'>Correo electrónico</label><input id=correo type='email'>"+
-          "<label for='contrasenha'>Contraseña</label><input id=contrasenha type='password'>"+
+          "<label for='correo'>Correo electrónico</label><input id=correo type='email' required>"+
+          "<label for='contrasenha'>Contraseña</label><input id=contrasenha type='password' required>"+
     "</form>"+
     "<button id='iniciar' onclick='verificar(correo.value)'>Iniciar Sesión</button>"+
     "</div>" +

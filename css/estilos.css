@@ -55,7 +55,7 @@ hr{
 }
 
 /*Enlace activo*/
-.activo{
+nav .activo{
   text-decoration: underline orangered 5px;
     /* color: orangered; */
 }
@@ -64,6 +64,7 @@ a{
   text-decoration: none;
   color: black;
 }
+
 
 a:hover{
   text-decoration: underline;
@@ -205,6 +206,12 @@ footer img{
 }
 
 @media (max-width:680px){
+  #logo{
+    width: 50px;
+    position: fixed;
+    left: 10px;
+    top:110px
+  }
   #categorias{
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
@@ -233,6 +240,11 @@ footer img{
   transform:scale(1.1);
   width:100%;
 }
+/* añadido */
+#categorias:hover > :not(:hover) {
+  opacity: .4;
+}
+
 
 div#menu{
   padding: 5px;
@@ -279,6 +291,51 @@ div#menu button{
 /* ************** */
 /*    CARRITO     */
 /* ************** */
+#tabla_compra {
+  width: 60%;
+  margin: 2% auto;
+  font-size: 20px;
+  text-align: center;
+}
+
+#tabla_compra caption{
+  
+}
+
+#tabla_compra td, #tabla_compra th{
+  padding: 0.5em;
+}
+
+#conceptos th{
+  background-color: rgb(9, 173, 151);
+  border: 1px solid #ccc;
+}
+
+#total td{
+  padding-top: 0.5em;
+  border-top: 1px solid #ccc;
+}
+
+ tr.producto {
+   vertical-align:middle;
+}
+ 
+ td.producto {
+  margin-right: 1em;
+   vertical-align:top;
+   
+}
+ 
+ td.producto img {
+  width: 200px;
+}
+
+td.producto p{
+   margin-bottom:0.5em;
+   padding-bottom:0.5em;
+   margin-top:0em;
+   padding-top:0em;
+ }
 
 /* ************** */
 /*   FORMULARIO   */
@@ -330,3 +387,61 @@ button{
 }
 
 
+/* mapa */
+#ubicacion {
+  width:100%;
+  text-align: center;
+}
+
+#ubicacion img{
+  object-fit: cover;
+  width:60%;
+}
+
+/* imagenes iniciales */
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body{
+  background-color: #ffffff;
+}
+
+/*Basic structure of slider*/
+.container_img{
+  width: 500px;
+  position: absolute;
+  transform: translate(-50%,-50%);
+  top: 50%;
+  left: 50%;
+  overflow: hidden;
+  border: 10px solid #ffffff;
+  border-radius: 8px;
+  box-shadow: -1px 5px 15px black;
+}
+
+/*Area of images*/
+
+.gallery {
+  position: relative;
+}
+.image {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  animation: movement 5s infinite;
+}
+@keyframes movement {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
