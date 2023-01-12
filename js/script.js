@@ -7,7 +7,7 @@
   * Se añadieron las etiquuetas label para cada entrada de formulario
 */
 
-INICIO_SESION =true;
+INICIO_SESION =false;
 CARRO_COMPRA = new Array();
 
 //Función que carga la página principal
@@ -23,11 +23,11 @@ function cargarPagina(){
               '<img id="reino-unido" alt="bandera de Reino Unido" src="./imagenes/reino-unido.png" title="Cambiar idioma a ingles">'+
             '</div>'+
             '<nav>'+
-                '<a alt="" id="logo" onclick="cargarPagina();" href="#" title="Ir a la página de novedades" tabindex="0" role="link"><img id="logo" alt="logo de pagina" src="./imagenes/logo1.png"></a>'+
-                '<a alt="" id="menu" onclick="cargarMenu();" href="#" role="link" tabindex="0">Carta</a>'+
-                '<a alt="" id="carrito" onclick="cargarCarrito();" href="#" role="link" tabindex="0">Carrito</a>'+
-                '<a alt="" id="mapa" onclick="cargarMapa();" role="link" href="#" tabindex="0">Encuentranos</a>'+
-                '<a id="registrarse" alt="" onclick="cargarFormulario();" href="#" role="link" tabindex="0">Registrarse</a>'+
+                '<a alt="Ir a la página de novedades" id="logo" onclick="cargarPagina();" href="#" title="Ir a la página de novedades" tabindex="0" role="link"><img id="logo" alt="logo de pagina" src="./imagenes/logo.png"></a>'+
+                '<a alt="Ir a la sección de menú" id="menu" onclick="cargarMenu();" href="#" role="link" tabindex="0">Carta</a>'+
+                '<a alt="Ir al carrito de compra" id="carrito" onclick="cargarCarrito();" href="#" role="link" tabindex="0">Carrito</a>'+
+                '<a alt="Ir al mapa con la ubicación" id="mapa" onclick="cargarMapa();" role="link" href="#" tabindex="0">Encuentranos</a>'+
+                '<a alt="Ir al formulario de registro" id="registrarse"  onclick="cargarFormulario();" href="#" role="link" tabindex="0">Registrarse</a>'+
                 // '<form onsubmit="processSearch(event)">'+
                 //   '<label for="buscar" class="lsf-icon search"></label><br>'+
                 //   '<input type="text" id="buscar" name="buscar"><br>'+
@@ -38,9 +38,8 @@ function cargarPagina(){
         '</header>'+
         '<main id="principal">'+
         '<div  id="titulo" class="titulo">'+
-        '<h1>Novedades</h1>'+
+        '<h2>Novedades</h2>'+
         '</div>'+
-        //'<h2 class="centrado">Nuevas figuras</h2>'+
         '<div id="carrusel-contenido">'+
             '<div id="carrusel-caja">'+
                 '<div class="carrusel-elemento">'+
@@ -55,8 +54,9 @@ function cargarPagina(){
             '</div>'+
         '</div>'+
 		'<div id="cajita_feliz">'+
-			'<img src="imagenes/Afiche-Juguetes-Cuadrado.jpg">'+
-			'<div><h2 class="centrado">Descubre las sorpresas que trae para ti</h2>'+
+			'<div><h2>La felicidad llego al fondo de bikini!</h2>'+
+      '<p>Para jugar en familia con los 6 juguetes de distintos personajes de Bob Esponja que trae la cajita sorpresa  </p>'+
+      '<img alt="Juguetes de la caja sorpresa" src="imagenes/Afiche-Juguetes-Cuadrado.jpg">'+
 			'</div>'+
 		'</div>'+
         '</main>'+
@@ -97,8 +97,6 @@ function cargarMenu(){
 
 //Función que carga las opciones de la categoría escogida
 function mostrarMenu(nombre, nom){
-  // console.log(nom);
-  // console.log(nombre);
   texto="<div id='titulo' class='titulo'>"+
   "<h2>"+ $('#'+nom).html() +"</h2>"+
   "</div><div id='menu'>";
@@ -109,20 +107,35 @@ function mostrarMenu(nombre, nom){
 	  for(let j=0; j<nombre[i][3].length; j++){
 		 texto+= '<img alt="El alergeno es '+ nombre[i][3][j] +'" src="./imagenes/alergenos/'+nombre[i][3][j]+'"/>';
 	  }
-	  
-    texto += '</div><button onclick="mandaraCarrito('+nom+','+i+')">Añadir a Carrito ' + nombre[i][4].toFixed(2) +'€</button></div></div><hr>';
+	 let propiedad = nombre[i][1].split(".")
+    texto += '</div><button id="but_'+propiedad[0]+'" onclick="mandaraCarrito('+nom+','+i+',\''+ propiedad[0] +'\')">Añadir a Carrito ' + nombre[i][4].toFixed(2) +'€</button></div></div><hr>';
   }
   texto+='</div>';
   principal.innerHTML = texto;
 }
 
 //Función que añade elementos al carrito si se ha iniciado sesión
-function mandaraCarrito(producto, numero){
+function mandaraCarrito(producto, numero, nombre){
+  let cont_button = $('#but_'+nombre).html();
   if(INICIO_SESION == false){
-
+	  $('#but_'+nombre).animate({opacity: 0.5}, "fast", function(){
+      $('#but_'+nombre).text("Debe iniciar sesión").animate({opacity: 1});
+    });
+    setTimeout(function(){
+      $('#but_'+nombre).animate({opacity: 0.5}, "fast", function(){
+          $('#but_'+nombre).text(cont_button).animate({opacity: 1});
+      });
+    }, 200);
   }else {
-  CARRO_COMPRA.push([producto[numero]]);
-  // console.log(CARRO_COMPRA)
+  	CARRO_COMPRA.push([producto[numero]]);
+    $('#but_'+nombre).animate({opacity: 0.5}, "fast", function(){
+      $('#but_'+nombre).text("Se añadio al carrito").animate({opacity: 1});
+    });
+    setTimeout(function(){
+      $('#but_'+nombre).animate({opacity: 0.5}, "fast", function(){
+          $('#but_'+nombre).text(cont_button).animate({opacity: 1});
+      });
+    }, 400);
   }
 }
 

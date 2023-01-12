@@ -158,11 +158,12 @@ main{
 }
 
 #cajita_feliz{
-	margin:10px auto; 
+	margin:15px auto; 
 	width: 80%;
 	padding: 5px;
 	gap: 5px;
 	display: flex;
+  align-items: center;
 	border: solid 3px rgb(37,38,86);
 	
 }
@@ -172,9 +173,20 @@ main{
 }
 
 #cajita_feliz div{
-	width: 50%;
+	width: 100%;
+  text-align: center;
 }
 
+#cajita_feliz div h2{
+  font-family: Spongeboy;
+  font-size: 2em;
+  margin: 10px;
+}
+
+#cajita_feliz div p{
+  margin: 10px;
+  font-size: 1.5em;
+}
 
 /* ************** */
 /*       PIE      */
