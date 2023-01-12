@@ -1,6 +1,6 @@
 /* 
   PÁGINA WEB CREADA DESDE JAVASCRIPT
-  * Se utilizaron etiquetas semanticas
+  * Se utilizaron etiquetas semánticas
   * Todos los links e imagenes llevan texto alternativo
   * Para que sea de fácil navegación con el teclado se agrego la etiqueta tabindex
   * Se eligieron colores que hacen constraste entre ellos
@@ -23,38 +23,61 @@ function cargarPagina(){
               '<img id="reino-unido" alt="bandera de Reino Unido" src="./imagenes/reino-unido.png" title="Cambiar idioma a ingles">'+
             '</div>'+
             '<nav>'+
-                '<a alt="" id="logo" onclick="cargarPagina();" href="#" title="Ir a la página principal" tabindex="0" role="link"><img id="logo" alt="#" src="./imagenes/logo1.png"></a>'+
+                '<a alt="" id="logo" onclick="cargarPagina();" href="#" title="Ir a la página de novedades" tabindex="0" role="link"><img id="logo" alt="logo de pagina" src="./imagenes/logo1.png"></a>'+
                 '<a alt="" id="menu" onclick="cargarMenu();" href="#" role="link" tabindex="0">Carta</a>'+
                 '<a alt="" id="carrito" onclick="cargarCarrito();" href="#" role="link" tabindex="0">Carrito</a>'+
                 '<a alt="" id="mapa" onclick="cargarMapa();" role="link" href="#" tabindex="0">Encuentranos</a>'+
                 '<a id="registrarse" alt="" onclick="cargarFormulario();" href="#" role="link" tabindex="0">Registrarse</a>'+
-                '<label for="buscar"><div class="lsf-icon search"> <input id="buscar" type="search" placeholder="Buscar" role="search" tabindex="0"></div></label>' +
+                // '<form onsubmit="processSearch(event)">'+
+                //   '<label for="buscar" class="lsf-icon search"></label><br>'+
+                //   '<input type="text" id="buscar" name="buscar"><br>'+
+                //  ' <input type="submit" value="Submit">'+
+                // '</form> '+
+            '<label for="buscar"><div class="lsf-icon search"> <input id="buscar" type="search" placeholder="Buscar" role="search" tabindex="0"></div></label>' +
             '</nav>'+
         '</header>'+
         '<main id="principal">'+
-        //probando
-        '<div class="gallery">'+
-          '<img src="./imagenes/Malteada.png" class="image">'+
-          '<img src="./imagenes/mapa.jpg" class="image">'+
-          '<img src="./imagenes/Malteada.png" class="image">'+
+        '<div  id="titulo" class="titulo">'+
+        '<h1>Novedades</h1>'+
         '</div>'+
-
-
+        //'<h2 class="centrado">Nuevas figuras</h2>'+
+        '<div id="carrusel-contenido">'+
+            '<div id="carrusel-caja">'+
+                '<div class="carrusel-elemento">'+
+                    '<img class="imagenes" src="./imagenes/menuFeliz.jpg" >'+
+                '</div>'+
+                '<div class="carrusel-elemento">'+
+                    '<img class="imagenes" src="imagenes/heroe1.jpg">'+
+                '</div>'+
+                '<div class="carrusel-elemento">'+
+                    '<img class="imagenes" src="imagenes/heroe2.jpg">'+
+                '</div>'+
+            '</div>'+
+        '</div>'+
+		'<div id="cajita_feliz">'+
+			'<img src="imagenes/Afiche-Juguetes-Cuadrado.jpg">'+
+			'<div><h2 class="centrado">Descubre las sorpresas que trae para ti</h2>'+
+			'</div>'+
+		'</div>'+
         '</main>'+
         '<footer>'+
           "<div id='redes'>"+
-            '<a href="https://www.facebook.com/bobesponja" target="_blank"><img src="./imagenes/facebook.png"></a>'+
-            '<a href="https://www.instagram.com/bobesponja/" target="_blank"><img src="./imagenes/instagram.png"></a>'+
-            '<a href="https://twitter.com/bobesponja/" target="_blank"><img src="./imagenes/gorjeo.png"></a>'+
+            '<a href="https://www.facebook.com/bobesponja" target="_blank" alt="Visitar página oficial de facebook"><img src="./imagenes/facebook.png"></a>'+
+            '<a href="https://www.instagram.com/bobesponja/" alt="Visitar cuenta verificada de instagram" target="_blank"><img src="./imagenes/instagram.png"></a>'+
+            '<a href="https://twitter.com/bobesponja/" alt="Visitar cuenta verificada de twitter" target="_blank"><img src="./imagenes/gorjeo.png"></a>'+
           "</div>"+
           '<p>&#169; 2022 Crustaceo Cascarudo Restaurant Spain. Todos los derechos reservados.</p>'+
         '</footer>';
+        
 }
 
+// function processSearch(event) {
+//   event.preventDefault();
+//   var searchQuery = document.getElementById('buscar').value;
+// }
 
 
-
-//Función que carga el menú de opciones
+//Función que carga el cada categoría del menú
 function cargarMenu(){
     document.title = "Menu";
     esteticaEnlaces('menu');
@@ -62,7 +85,7 @@ function cargarMenu(){
     "<h2>Productos</h2>"+
     "</div><div id='categorias'>";
     for(let i=0; i<listaMenu.length;i++){
-      texto += '<a id="'+ listaMenu[i]+'" href="#" onclick="mostrarMenu('+ listaMenu[i]+', \''+ listaMenu[i]+'\')" style="background-image: url(./imagenes/'+listaMenu[i]+'.jpg);" role="link" tabindex="0"></a>';
+      texto += '<a id="'+ listaMenu[i]+'" href="#" alt="'+listaMenu[i]+'" onclick="mostrarMenu('+ listaMenu[i]+', \''+ listaMenu[i]+'\')" style="background-image: url(./imagenes/'+listaMenu[i]+'.jpg);" role="link" tabindex="0"></a>';
     }
 
     principal.innerHTML = texto;
@@ -72,16 +95,22 @@ function cargarMenu(){
     $('#complementos').html('<h2>Complementos</h2>');
 }
 
+//Función que carga las opciones de la categoría escogida
 function mostrarMenu(nombre, nom){
-  console.log(nom);
-  console.log(nombre);
+  // console.log(nom);
+  // console.log(nombre);
   texto="<div id='titulo' class='titulo'>"+
   "<h2>"+ $('#'+nom).html() +"</h2>"+
   "</div><div id='menu'>";
   for(let i=0; i<nombre.length;i++){
     texto += '<div id="'+ nombre[i][0]+'"><a target="_blank" href="./imagenes/'+nombre[i][1]+'"><img src="./imagenes/'+nombre[i][1]+'" alt="'+nombre[i][0]+'"></a>'+
-    '<div id="descripcion"><h2>'+nombre[i][0]+'</h2><p>'+nombre[i][2]+'<p>'+
-    '<button onclick="mandaraCarrito('+nom+','+i+')">Añadir a Carrito</button></div></div><hr>';
+    '<div id="descripcion"><h2>'+nombre[i][0]+'</h2><p>'+nombre[i][2]+'</p>'+
+    '<div id="alergenos">';
+	  for(let j=0; j<nombre[i][3].length; j++){
+		 texto+= '<img alt="El alergeno es '+ nombre[i][3][j] +'" src="./imagenes/alergenos/'+nombre[i][3][j]+'"/>';
+	  }
+	  
+    texto += '</div><button onclick="mandaraCarrito('+nom+','+i+')">Añadir a Carrito ' + nombre[i][4].toFixed(2) +'€</button></div></div><hr>';
   }
   texto+='</div>';
   principal.innerHTML = texto;
@@ -93,7 +122,7 @@ function mandaraCarrito(producto, numero){
 
   }else {
   CARRO_COMPRA.push([producto[numero]]);
-  console.log(CARRO_COMPRA)
+  // console.log(CARRO_COMPRA)
   }
 }
 
@@ -125,7 +154,7 @@ function cargarCarrito(){
         '<th>Eur.</th>'+
         '</tr>';
       for (let i = 0; i < CARRO_COMPRA.length; i++) {
-        console.log(CARRO_COMPRA[i][0][0])
+        // console.log(CARRO_COMPRA[i][0][0])
             texto+= '<tr class="producto">'+
               '<td class="producto"><p>'+CARRO_COMPRA[i][0][0]+'<br/><img src="./imagenes/'+CARRO_COMPRA[i][0][1]+'" alt="'+CARRO_COMPRA[i][0][0]+'"></p></td>'+
               '<td>'+ CARRO_COMPRA[i][0][4]+'</td>'+
@@ -154,8 +183,8 @@ function cargarMapa(){
     "</div>"+
     "<div id='ubicacion'>"+
     "<h2>Pulsa en el mapa para ver la ubicación en google maps</h2>"+
-    "<a href='https://goo.gl/maps/yuKFQbw9gcGWdVkF8'  target='_blank'>" +
-    "<img src='../web_crustaceo/imagenes/mapa.jpg' alt=''></a>"+
+    "<a href='https://goo.gl/maps/yuKFQbw9gcGWdVkF8'  target='_blank' alt='Abrir dirección en google maps'>" +
+    "<img src='../web_crustaceo/imagenes/mapa.jpg' alt='Mapa del fondo de bikini'></a>"+
     "</div>";
 
 }
@@ -199,12 +228,17 @@ function formIniSes(){
 }
 
 function verificar(correo){
+	login.innerHTML = "";
     for (let i = 0; i < correosElec.length; i++) {
         if(correosElec[i]==correo){
           $('#correo, #contrasenha').val('');
            INICIO_SESION = true;
            login.innerHTML = "Ha iniciado sesión correctamente";
-        }
+			break;
+        }else{
+			INICIO_SESION = false;
+			login.innerHTML = "Debe introducir datos válidos";
+		}
         
     }
 }

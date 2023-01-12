@@ -38,10 +38,6 @@ body{
   margin: 0;
 }
 
-#contenedor{
-
-}
-
 hr{
   border-radius: 2px;
 
@@ -161,6 +157,25 @@ main{
   background: linear-gradient(90deg, rgba(0,138,172,255) 0%, rgba(3,171,153,255) 35%, rgba(213,224,67,255) 100%);
 }
 
+#cajita_feliz{
+	margin:10px auto; 
+	width: 80%;
+	padding: 5px;
+	gap: 5px;
+	display: flex;
+	border: solid 3px rgb(37,38,86);
+	
+}
+
+#cajita_feliz img{
+	width: 50%;
+}
+
+#cajita_feliz div{
+	width: 50%;
+}
+
+
 /* ************** */
 /*       PIE      */
 /* ************** */
@@ -240,6 +255,8 @@ footer img{
   transform:scale(1.1);
   width:100%;
 }
+
+
 /* añadido */
 #categorias:hover > :not(:hover) {
   opacity: .4;
@@ -274,6 +291,11 @@ div#menu >div{
   text-align: center;
 }
 
+#descripcion p{
+	font-size: 1.1em;
+	text-align: justify;
+}
+
 div#menu a{
  width:20%;
 }
@@ -288,9 +310,26 @@ div#menu button{
   width: 30%;
 }
 
+
+#alergenos{
+  display: flex;
+	width: 7%
+
+}
+#alergenos img{
+  width: 3%;
+}
+
+
 /* ************** */
 /*    CARRITO     */
 /* ************** */
+#carro_compra{
+	display: grid;
+	width: 60%;
+	grid-template-rows: repeat(4,1fr);
+}
+
 #tabla_compra {
   width: 60%;
   margin: 2% auto;
@@ -367,9 +406,10 @@ form input{
 
 }
 
-#registrarse :nth-child(){
-
+#registrarse :nth-child(13){
+  grid-column:1/3;
 }
+
 
 input[type=reset],input[type=submit], button{
   cursor: pointer;
@@ -386,6 +426,9 @@ button{
   width: fit-content;
 }
 
+input#pol_priv{
+  width: 20px;
+}
 
 /* mapa */
 #ubicacion {
@@ -396,18 +439,6 @@ button{
 #ubicacion img{
   object-fit: cover;
   width:60%;
-}
-
-/* imagenes iniciales */
-
-*{
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
-body{
-  background-color: #ffffff;
 }
 
 /*Basic structure of slider*/
@@ -423,25 +454,114 @@ body{
   box-shadow: -1px 5px 15px black;
 }
 
-/*Area of images*/
+/*Area de imageness*/
 
-.gallery {
-  position: relative;
+#carrusel-caja {
+  -moz-animation: automatizacion 15s infinite linear;
+  -o-animation: automatizacion 15s infinite linear;
+  -webkit-animation: automatizacion 15s infinite linear;
+  animation: automatizacion 15s infinite linear;
+  -webkit-transition: all 0.75s ease;
+  -moz-transition: all 0.75s ease;
+  -ms-transition: all 0.75s ease;
+  -o-transition: all 0.75s ease;
+  transition: all 0.75s ease;
+  height: 500px;
+  width: 300%;
 }
-.image {
-  position: absolute;
-  width: 200px;
-  height: 200px;
-  animation: movement 5s infinite;
+
+#carrusel-contenido {
+  margin: 0 auto;
+  overflow: hidden;
+  text-align: left;
 }
-@keyframes movement {
+
+.imagenes{
+  height: 500px;
+  width: 100%;
+}
+
+.carrusel-elemento {
+  float: left;
+  width: 33.333%;
+}
+
+@-moz-keyframes automatizacion {
   0% {
-    transform: translateX(0);
+      margin-left: 0;
   }
-  50% {
-    transform: translateX(100%);
+  30% {
+      margin-left: 0;
+  }
+  35% {
+      margin-left: -100%;
+  }
+  65% {
+      margin-left: -100%;
+  }
+  70% {
+      margin-left: -200%;
+  }
+  95% {
+      margin-left: -200%;
   }
   100% {
-    transform: translateX(0);
+      margin-left: 0;
   }
 }
+
+@-webkit-keyframes automatizacion {
+  0% {
+      margin-left: 0;
+  }
+  30% {
+      margin-left: 0;
+  }
+  35% {
+      margin-left: -100%;
+  }
+  65% {
+      margin-left: -100%;
+  }
+  70% {
+      margin-left: -200%;
+  }
+  95% {
+      margin-left: -200%;
+  }
+  100% {
+      margin-left: 0;
+  }
+}
+
+@keyframes automatizacion {
+  0% {
+      margin-left: 0;
+  }
+  30% {
+      margin-left: 0;
+  }
+  35% {
+      margin-left: -100%;
+  }
+  65% {
+      margin-left: -100%;
+  }
+  70% {
+      margin-left: -200%;
+  }
+  95% {
+      margin-left: -200%;
+  }
+  100% {
+      margin-left: 0;
+  }
+}
+
+
+#comienzo{
+  text-align: center;
+  background-color: rgb(83, 123, 175);
+}
+
+
